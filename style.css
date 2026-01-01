@@ -1,0 +1,313 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+  font-family:Arial, sans-serif;
+}
+
+header{
+  position:fixed;
+  width:100%;
+  background:#0a2540;
+  z-index:1000;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+}
+
+.logo{
+  color:white;
+  font-size:26px;
+  font-weight:bold;
+}
+.logo-circle {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #3b82f6, #0f172a);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:20px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-size:15px;
+  
+}
+/* Nav links default style */
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  position: relative;       /* for underline animation */
+  transition: color 0.3s ease;
+}
+
+/* Hover color change + underline animation */
+nav ul li a:hover {
+  color: #7a86f7; /* gold color */
+}
+
+/* Optional: underline animation */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: #7a86f7;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+.hero{
+  height:100vh;
+  background:linear-gradient(120deg,#0a2540,#1e90ff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-align:center;
+}
+
+.hero span{
+  color:#ffd700;
+}
+.skill-bar {
+  height: 6px;
+  background: #ddd;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+.skill-bar div {
+  height: 100%;
+  background: #ffd700;
+  border-radius: 4px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card img {
+  width: 100%;
+  display: block;
+}
+
+.project-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 30px;
+  background:white;
+  color:#0a2540;
+  border-radius:30px;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+}
+
+.section{
+  padding:90px 20px;
+  text-align:center;
+}
+
+.dark{
+  background:#f4f6f8;
+}
+
+.skills {
+  padding: 80px 10%;
+  background: #25355a;
+  color: #fff;
+  text-align: center;
+}
+
+.skills h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 30px;
+}
+
+.skill-card {
+  background: #020617;
+  padding: 30px 20px;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.skill-card i {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.skill-card p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(59,130,246,0.3);
+}
+
+.projects{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+.portfolio{
+  margin-bottom: 15px;
+}
+
+.project-card{
+  width:280px;
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  transition:.4s;
+}
+
+.project-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.project-card:hover{
+  transform:translateY(-10px);
+}
+
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition: all 1s ease;
+}
+.fade.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* ===============================
+   MOBILE & TABLET RESPONSIVE
+   =============================== */
+
+/* hamburger icon */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:25px;
+  height:3px;
+  background:#fff;
+  margin:4px 0;
+}
+
+/* TABLET */
+@media (max-width: 992px){
+  nav{
+    padding:15px 25px;
+  }
+
+  .projects{
+    gap:20px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+
+  /* show hamburger */
+  .hamburger{
+    display:flex;
+  }
+
+  /* hide menu */
+  nav ul{
+    position:fixed;
+    top:65px;
+    right:-100%;
+    flex-direction:column;
+    background:#0a2540;
+    width:220px;
+    height:100vh;
+    padding-top:30px;
+    gap:25px;
+    transition:0.3s ease;
+  }
+
+  nav ul.show{
+    right:0;
+  }
+
+  .hero{
+    padding:0 20px;
+  }
+
+  .skills{
+    padding:60px 20px;
+  }
+
+  .skills-grid{
+    gap:20px;
+  }
+
+  .project-card{
+    width:90%;
+  }
+}
